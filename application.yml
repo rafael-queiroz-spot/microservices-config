@@ -6,6 +6,9 @@ service:
   defaultMaxMs: 20
 
 spring:
+  output:
+    ansi:
+      enabled: ALWAYS
   sleuth:
     sampler:
       percentage: 1.0

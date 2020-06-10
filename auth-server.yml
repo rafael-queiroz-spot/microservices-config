@@ -1,6 +1,7 @@
 server:
   port: 9999
-  contextPath: /uaa
+  servlet:
+    contextPath: /uaa
 
 org:
   springframework:
@@ -11,11 +12,6 @@ org:
 management:
   security:
     enabled: false
-
-spring:
-  output:
-    ansi:
-      enabled: ALWAYS
 
 ---
 # For deployment in Docker containers
