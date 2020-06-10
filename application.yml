@@ -9,6 +9,9 @@ spring:
   sleuth:
     sampler:
       percentage: 1.0
+  output:
+    ansi:
+      enabled: ALWAYS
 #    traceId128: true
 #  zipkin:
 #    baseUrl: http://localhost:9411/zipkin/
