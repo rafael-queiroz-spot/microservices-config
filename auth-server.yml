@@ -12,6 +12,30 @@ management:
   security:
     enabled: false
 
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/unified-access-control?useTimezone=true&serverTimezone=UTC
+    username: root
+    password: spot@1234
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+  output:
+    ansi:
+      enabled: ALWAYS
+
+security:
+  jwt:
+    key-store: classpath:keystore.jks
+    key-store-password: letmein
+    key-pair-alias: mytestkey
+    key-pair-password: changeme
+
 ---
 # For deployment in Docker containers
 spring:
