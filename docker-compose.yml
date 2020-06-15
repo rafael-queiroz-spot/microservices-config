@@ -18,27 +18,33 @@ services:
     networks:
       - spot-network
       
-#  discovery-server:
-#    container_name: discovery-server
-#    image: spot2020/discovery-server
-#    restart: always
-#    environment:
-#      TZ: America/Sao_Paulo
-#      EUREKA_INSTANCE_HOSTNAME: discovery 
-#      EUREKA_INSTANCE_PORT: 8761  
-#    ports:
-#      - "8761:8761"
-#    networks:
-#      - spot-network
+  discovery-server:
+    container_name: discovery-server
+    image: spot2020/discovery-server
+    restart: always
+    environment:
+      TZ: America/Sao_Paulo
+      #EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka 
+      SPRING.PROFILES.ACTIVE: docker1
+    ports:
+      - "8761:8761"
+    networks:
+      - spot-network
   
-#  config-server:
-#    container_name: config-server
-#    image: spot2020/config-server
-#    restart: always
-#    environment:
-#      TZ: America/Sao_Paulo
-#    networks:
-#      - spot-network
+  config-server:
+    container_name: config-server
+    image: spot2020/config-server
+    restart: always
+    environment:
+      TZ: America/Sao_Paulo
+    #  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka
+    SPRING.PROFILES.ACTIVE: docker
+    links:
+      - discovery-server
+    depends_on:
+      - discovery-server
+    networks:
+    - spot-network
 
 networks:
   spot-network:

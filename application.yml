@@ -117,8 +117,8 @@ eureka:
 # For deployment in Docker containers
 spring:
   profiles: docker
-  zipkin.baseUrl: http://zipkin-server/
-  rabbitmq.host: rabbitmq
+#  zipkin.baseUrl: http://zipkin-server/
+#  rabbitmq.host: rabbitmq
 
 server.port: 8080
 
@@ -127,7 +127,7 @@ eureka:
     preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
+      defaultZone: http://discovery-server:8761/eureka/
 
 
 ---
