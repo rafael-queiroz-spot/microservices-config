@@ -24,8 +24,7 @@ services:
     restart: always
     environment:
       TZ: America/Sao_Paulo
-      #EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka 
-      SPRING_PROFILES_ACTIVE: docker1
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka 
     ports:
       - "8761:8761"
     networks:
@@ -37,8 +36,7 @@ services:
     restart: always
     environment:
       TZ: America/Sao_Paulo
-      #EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka
-      SPRING_PROFILES_ACTIVE: docker
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka
     ports:
       - "8888:8888"
     links:
@@ -54,8 +52,7 @@ services:
     restart: always
     environment:
       TZ: America/Sao_Paulo
-      #EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka
-      SPRING_PROFILES_ACTIVE: docker
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka
     links:
       - discovery-server
       - db
