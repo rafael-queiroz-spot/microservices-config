@@ -6,9 +6,6 @@ service:
   defaultMaxMs: 20
 
 spring:
-  output:
-    ansi:
-      enabled: ALWAYS
   sleuth:
     sampler:
       percentage: 1.0
@@ -49,30 +46,30 @@ logging:
     # To get rid of fake WARN messages: "Deprecated trace headers detected. Please upgrade Sleuth to 1.1 or start sending headers present in the TraceMessageHeaders class",
     org.springframework.cloud.sleuth.instrument.messaging.MessagingSpanExtractor: ERROR
 
-#spring.rabbitmq:
-#  host: localhost
-#  port: 5672
+spring.rabbitmq:
+  host: localhost
+  port: 5672
 
-#hystrix:
-#  threadpool:
-#    default:
+hystrix:
+  threadpool:
+    default:
       # Maximum number of concurrent requests when using thread pools (Default: 10)
-#      coreSize: 100
+      coreSize: 100
       # Maximum LinkedBlockingQueue size - -1 for using SynchronousQueue (Default: -1)
-#      maxQueueSize: -1
+      maxQueueSize: -1
       # Queue size rejection threshold (Default: 5)
-#      queueSizeRejectionThreshold: 5
-#  command:
-#    default:
-#      circuitBreaker:
-#        sleepWindowInMilliseconds: 30000
-#        requestVolumeThreshold: 3
-#      execution:
-#        isolation:
+      queueSizeRejectionThreshold: 5
+  command:
+    default:
+      circuitBreaker:
+        sleepWindowInMilliseconds: 30000
+        requestVolumeThreshold: 3
+      execution:
+        isolation:
 #          strategy: SEMAPHORE, no thread pool but timeout handling stops to work
-#          strategy: THREAD
-#          thread:
-#            timeoutInMilliseconds: 4000
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 4000
 
 
 
@@ -117,8 +114,8 @@ eureka:
 # For deployment in Docker containers
 spring:
   profiles: docker
-#  zipkin.baseUrl: http://zipkin-server/
-#  rabbitmq.host: rabbitmq
+  zipkin.baseUrl: http://zipkin-server/
+  rabbitmq.host: rabbitmq
 
 server.port: 8080
 
@@ -127,7 +124,7 @@ eureka:
     preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://discovery-server:8761/eureka/
+      defaultZone: http://discovery:8761/eureka/
 
 
 ---
