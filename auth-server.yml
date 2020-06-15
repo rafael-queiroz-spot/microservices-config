@@ -1,7 +1,6 @@
 server:
   port: 9999
-  servlet:
-    contextPath: /uaa
+  contextPath: /auth
 
 org:
   springframework:
@@ -28,4 +27,4 @@ eureka:
   client:
     registryFetchIntervalSeconds: 5
     serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
+      defaultZone: http://discovery-server:8761/eureka/
