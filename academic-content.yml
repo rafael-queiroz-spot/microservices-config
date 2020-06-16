@@ -1,16 +1,16 @@
 server:
-  port: 8181
+  port: 0
 
-#eureka:
-#  instance:
-#    leaseRenewalIntervalInSeconds: 10
-#    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
-#  client:
-#    registryFetchIntervalSeconds: 5
-#    healthcheck:
-#      enabled: true
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+  client:
+    registryFetchIntervalSeconds: 5
+    healthcheck:
+      enabled: true
 
-#feign.hystrix.enabled: true
+feign.hystrix.enabled: true
 
 management:
   security:
@@ -21,7 +21,7 @@ spring:
   profiles: docker
 
 server:
-  port: 8080
+  port: 0
 
 eureka:
   instance:
