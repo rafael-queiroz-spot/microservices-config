@@ -20,6 +20,9 @@ management:
 spring:
   profiles: docker
 
+server:
+  port: 8080
+
 eureka:
   instance:
     instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${server.port}}
