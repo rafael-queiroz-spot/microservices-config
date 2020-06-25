@@ -12,14 +12,6 @@ management:
   security:
     enabled: false
 
----
-# For deployment in Docker containers
-spring:
-  profiles: docker
-
-server:
-  port: 9999
-
 eureka:
   instance:
     preferIpAddress: true
@@ -28,3 +20,12 @@ eureka:
     registryFetchIntervalSeconds: 5
     serviceUrl:
       defaultZone: http://discovery:8761/eureka/
+
+---
+# For deployment in Docker containers
+spring:
+  profiles: docker
+
+server:
+  port: 9999
+
